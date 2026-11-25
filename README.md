@@ -288,6 +288,8 @@ Flash 发了 87.7% 的请求，按费率折算只占 36.0% 的额度当量。这
 
 ## 7. 安装
 
+不想读完整说明的：直接跳 [INSTALL.md](INSTALL.md)，一页看完获取、使用顺序和一键安装提示词。
+
 ### 一键安装
 
 把下面代码块里的内容整段复制，发给你的智能体，并告诉它分享包所在的目录。
@@ -332,6 +334,7 @@ Claude Code、Codex、Cursor：`leader-SKILL.md` 和 `AGENTS.md` 片段是纯 Ma
 | `data/telemetry_stats.py` | 从本机日志和用量库复算全部表格，只用标准库 | — |
 | `data/*.csv`、`data/summary.json` | 该脚本在上述四天数据上的输出 | — |
 | `evaluation-longimage.png` | 评测长图：手机上看得清的高清长图 | 中文 |
+| `INSTALL.md` | 一页式安装与使用顺序（给不想读全文的人） | 中文 |
 | `LICENSE` | MIT 许可证 | 英文 |
 
 **获取与使用**：在 GitHub 上克隆本仓库，或在仓库页面点 Code 下载 ZIP。解压后把目录告诉你的智能体，用第 7 节的一键安装提示词安装。包内文件以 MIT 许可证发布。第 1 节引用的评测原帖及其截图版权归原作者 Kxians 所有，不属于本许可证授权的范围。
