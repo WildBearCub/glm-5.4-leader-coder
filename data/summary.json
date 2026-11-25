@@ -1,0 +1,217 @@
+{
+  "responses_total": 13052,
+  "days": [
+    "2026-11-22",
+    "2026-11-23",
+    "2026-11-24",
+    "2026-11-25"
+  ],
+  "tool_calls_total": 15512,
+  "leader_glm54_main": {
+    "responses": 2041,
+    "think_median": 1348,
+    "think_p90": 10519,
+    "think_max": 95007
+  },
+  "leader_glm54_as_subagent": {
+    "responses": 511,
+    "think_median": 1237
+  },
+  "coder_glm53flash_subagent": {
+    "responses": 7372,
+    "think_median": 175,
+    "think_p90": 2727,
+    "think_max": 283539
+  },
+  "tool_calls_by_day": {
+    "2026-11-22": {
+      "Explore": 198,
+      "general-purpose": 921,
+      "main": 1134
+    },
+    "2026-11-23": {
+      "coder": 1,
+      "general-purpose": 607,
+      "main": 1553
+    },
+    "2026-11-24": {
+      "coder": 6042,
+      "main": 510
+    },
+    "2026-11-25": {
+      "coder": 3330,
+      "general-purpose": 649,
+      "main": 567
+    }
+  },
+  "until_local": "2026-11-25T11:10",
+  "coder_reasoning_split_at": "2026-11-24T12:00",
+  "coder_reasoning_split": {
+    "before": {
+      "responses": 2714,
+      "think_median": 102,
+      "think_p90": 1967,
+      "responses_over_50k_chars": 1
+    },
+    "after": {
+      "responses": 4658,
+      "think_median": 210,
+      "think_p90": 3370,
+      "responses_over_50k_chars": 22
+    }
+  },
+  "compared_sessions": [
+    [
+      "fast-model-direct",
+      "solo-fast-1",
+      54
+    ],
+    [
+      "fast-model-direct",
+      "solo-fast-2",
+      35
+    ],
+    [
+      "fast-model-direct",
+      "solo-fast-3",
+      20
+    ],
+    [
+      "fast-model-direct",
+      "solo-fast-4",
+      10
+    ],
+    [
+      "fast-model-direct",
+      "solo-fast-5",
+      82
+    ],
+    [
+      "fast-model-direct",
+      "solo-fast-6",
+      25
+    ],
+    [
+      "fast-model-direct",
+      "solo-fast-7",
+      21
+    ],
+    [
+      "fast-model-direct",
+      "solo-fast-8",
+      7
+    ],
+    [
+      "solo",
+      "in-house-1",
+      261
+    ],
+    [
+      "same-tier-subagents",
+      "one-session",
+      211
+    ],
+    [
+      "solo",
+      "in-house-3-blind-main",
+      17
+    ],
+    [
+      "solo",
+      "in-house-2",
+      98
+    ],
+    [
+      "leader-coder",
+      "T1",
+      449
+    ],
+    [
+      "leader-coder",
+      "T2",
+      153
+    ],
+    [
+      "leader-coder",
+      "T3",
+      314
+    ],
+    [
+      "leader-coder",
+      "T4",
+      150
+    ],
+    [
+      "leader-coder",
+      "T5",
+      167
+    ],
+    [
+      "leader-coder",
+      "T6",
+      10
+    ],
+    [
+      "leader-coder",
+      "T7",
+      528
+    ],
+    [
+      "leader-coder",
+      "showcase",
+      267
+    ]
+  ],
+  "dispatch_overhead": {
+    "coder_subagents": 127,
+    "requests_per_coder": {
+      "p25": 23,
+      "median": 40,
+      "p75": 65
+    },
+    "first_request_input_tokens": {
+      "p25": 13198,
+      "median": 14527,
+      "p75": 15751
+    },
+    "input_tokens_per_coder": {
+      "p25": 897068,
+      "median": 2307445,
+      "p75": 4664180
+    },
+    "output_tokens_per_coder": {
+      "p25": 14512,
+      "median": 26800,
+      "p75": 58028
+    },
+    "edits_per_coder": {
+      "p25": 0,
+      "median": 9,
+      "p75": 20
+    },
+    "share_of_coders_with_zero_edits_pct": 28.3
+  },
+  "coder_usage_without_a_parent_session_in_the_logs": {
+    "rows": 517,
+    "input_tokens": 78630787,
+    "output_tokens": 428845
+  },
+  "window_tokens": [
+    {
+      "window": "2026-11-25T05:57..2026-11-25T10:57",
+      "model": "GLM-5.3-Flash",
+      "requests": 1020,
+      "input_tokens": 90899797,
+      "cache_read_tokens": 88894976,
+      "output_tokens": 849038
+    },
+    {
+      "window": "2026-11-25T05:57..2026-11-25T10:57",
+      "model": "GLM-5.4",
+      "requests": 143,
+      "input_tokens": 40481271,
+      "cache_read_tokens": 39393472,
+      "output_tokens": 307473
+    }
+  ]
+}

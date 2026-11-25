@@ -1,0 +1,14 @@
+model,querySource,responses,think_median,think_p90,think_max,think_mean,think_zero_pct,text_median,tools_per_response,think_total
+GLM-5.3,main_turn,685,503,5683,35296,1917,23.2,33,1.05,1313113
+GLM-5.3,subagent,871,255,2917,69623,1339,36.9,0,1.28,1166136
+GLM-5.3,web_search_tool,61,0,32,249,18,70.5,2022,1.39,1088
+GLM-5.3-Flash,subagent,7372,175,2727,283539,1487,40.0,0,1.17,10964478
+GLM-5.3-flashx,main_turn,980,252,3667,52375,1419,34.8,0,0.98,1391008
+GLM-5.3-flashx,subagent,147,328,3643,22055,1561,27.9,0,1.16,229512
+GLM-5.4,compact,1,0,0,0,0,100.0,33598,0.0,0
+GLM-5.4,main_turn,2041,1348,10519,95007,4303,12.7,28,1.4,8782521
+GLM-5.4,subagent,511,1237,8738,35642,3052,7.4,0,1.36,1559417
+GLM-5.4,web_search_tool,30,0,422,1236,140,56.7,1934,1.33,4202
+GLM-Fable,main_turn,67,186,10099,54118,3708,31.3,29,0.99,248425
+GLM-Fable,subagent,285,164,7058,69928,3073,43.9,0,1.26,875854
+GLM-Fable,web_search_tool,1,0,0,0,0,100.0,574,1.0,0

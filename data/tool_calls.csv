@@ -1,0 +1,12 @@
+day,agentType,tool_calls
+2026-11-22,Explore,198
+2026-11-22,general-purpose,921
+2026-11-22,main,1134
+2026-11-23,coder,1
+2026-11-23,general-purpose,607
+2026-11-23,main,1553
+2026-11-24,coder,6042
+2026-11-24,main,510
+2026-11-25,coder,3330
+2026-11-25,general-purpose,649
+2026-11-25,main,567

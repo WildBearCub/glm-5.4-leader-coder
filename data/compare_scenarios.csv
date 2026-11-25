@@ -1,0 +1,31 @@
+group,scenario,model,quota_units_per_edit
+fast-model-direct,all tokens at face value,TOTAL,
+fast-model-direct,cache reads at 10%,TOTAL,
+fast-model-direct,output tokens only,TOTAL,
+leader-coder,all tokens at face value,GLM-5.3-Flash,96898
+leader-coder,all tokens at face value,GLM-5.4,293506
+leader-coder,all tokens at face value,TOTAL,390403
+leader-coder,cache reads at 10%,GLM-5.3-Flash,12253
+leader-coder,cache reads at 10%,GLM-5.4,38742
+leader-coder,cache reads at 10%,TOTAL,50995
+leader-coder,output tokens only,GLM-5.3-Flash,669
+leader-coder,output tokens only,GLM-5.4,1633
+leader-coder,output tokens only,TOTAL,2303
+same-tier-subagents,all tokens at face value,GLM-5.4,186730
+same-tier-subagents,all tokens at face value,GLM-Fable,173705
+same-tier-subagents,all tokens at face value,TOTAL,360434
+same-tier-subagents,cache reads at 10%,GLM-5.4,23936
+same-tier-subagents,cache reads at 10%,GLM-Fable,27602
+same-tier-subagents,cache reads at 10%,TOTAL,51538
+same-tier-subagents,output tokens only,GLM-5.4,744
+same-tier-subagents,output tokens only,GLM-Fable,2651
+same-tier-subagents,output tokens only,TOTAL,3395
+solo,all tokens at face value,GLM-5.4,621197
+solo,all tokens at face value,GLM-Fable,10576
+solo,all tokens at face value,TOTAL,631773
+solo,cache reads at 10%,GLM-5.4,76611
+solo,cache reads at 10%,GLM-Fable,1478
+solo,cache reads at 10%,TOTAL,78089
+solo,output tokens only,GLM-5.4,2146
+solo,output tokens only,GLM-Fable,159
+solo,output tokens only,TOTAL,2306
