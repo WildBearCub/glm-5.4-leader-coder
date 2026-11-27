@@ -1,27 +1,13 @@
-# 安装与使用（不想读完整 README，看这一页就够了）
+# Installer prompt — give this whole file to the AI that installs the pack
 
-**获取**：GitHub 仓库 https://github.com/WildBearCub/glm-5.4-leader-coder ——点 Code 下载 ZIP，或 `git clone`。适用对象：z.ai GLM-5.4 + GLM-5.3-Flash（ZCode、Claude Code、Codex、Cursor 等能读 Markdown 定义的工具）。
+You are the installer. The user tells you the folder that holds this pack. The pack is verified on ZCode only; if you are not running in ZCode, stop and say so instead of improvising a port. Do the steps in order. Never run git commit or git push.
 
-## 使用顺序
-
-1. 下载并解压分享包，记下解压后的具体位置。
-2. 把位置和下面「一键安装提示词」整段发给你的 AI，让它帮你安装。
-3. 安装完成后重启软件并新建会话。
-4. 以后每次开 GLM-5.4 的新会话，第一条消息以「Leader」开头，后面跟任务，例如：`Leader 读 <方案或交接文档>。先做 <第一步>，再做 <第二步>，然后按 <某一节> 顺序推进。` 只需要开头这一次，之后它会自动派发子智能体，不用重复注入。
-5. 思考强度用「高」就够，不必开最大；只有需要全面排查问题时才开最大。
-
-## 一键安装提示词
-
-```text
-你拿到的是一个「Leader + Coder 双模型分工」分享包，用户会告诉你它所在的目录。按下面的步骤安装：
-
-1. 先读分享包目录里的三个文件：leader-SKILL.md（Leader 技能，英文）、coder.md（Coder 子智能体定义，中文）、AGENTS-discuss-before-diverging.md（要追加进项目说明文件的一节规则，英文）。读完后向用户说明你自己运行在什么平台上（ZCode、Claude Code、Codex、Cursor 等），后续步骤按平台执行。
-2. 安装 Leader 技能：如果你运行在 ZCode，把 leader-SKILL.md 原样放到 ~/.agents/skills/leader/SKILL.md；如果运行在其他平台，把它换成你所在平台的技能格式再放，并向用户说明你改了什么。
-3. 安装 Coder 子智能体：如果你运行在 ZCode，把 coder.md 原样放到 ~/.zcode/agents/coder.md；如果运行在其他平台，把它的正文作为系统提示词，换成你所在平台的子智能体格式再放，并向用户说明你改了什么。注意 ZCode 下如果项目级 .zcode/agents/coder.md 已存在，它会盖过用户级这份，两处只能留一份。
-4. 把 AGENTS-discuss-before-diverging.md 里那一节规则追加到你项目的说明文件顶部、项目专属规则之前：ZCode、Codex、Cursor 通常是 AGENTS.md，Claude Code 通常是 CLAUDE.md。如果目标文件里已经有同名小节，跳过，不重复追加。
-5. 覆盖任何已存在的目标文件之前，先把它原样复制一份 .bak 备份，并告诉用户备份文件在哪里。
-6. coder.md 里的「安全规矩」和「测试配方」是按作者自己的项目写的（环境变量、路径、测试命令），需要按用户的项目替换。把这些需要替换的地方逐条列出来问用户，按用户的回答修改；用户没有回答的不要擅自改。
-7. 全程不要 git commit、不要 git push。装完后输出一张清单：每个文件装到了哪里、改了什么、哪些在等用户确认；并提醒用户：ZCode 下智能体定义要到下一个会话才生效。
-```
-
-装完之后想了解原理、数据和适用范围，再回来看 [README.md](README.md)。
+1. Read the five pack files: `leader-SKILL.md`, `coder.md`, `AGENTS-discuss-before-diverging.md` (three rule sections), `任务台账-模板.md`, `task_ledger.py`.
+2. Before overwriting any existing file, copy it to `<file>.bak` and tell the user where the backups are.
+3. Leader skill: copy `leader-SKILL.md` to `~/.agents/skills/leader/SKILL.md`.
+4. Coder subagent: copy `coder.md` to `~/.zcode/agents/coder.md`. If `<project>/.zcode/agents/coder.md` already exists it overrides the user-level file: tell the user and keep exactly one.
+5. Project rules: INSERT the three sections of `AGENTS-discuss-before-diverging.md` at the very top of the project's `AGENTS.md` — right after the title line, before every project-specific rule. Do not append them at the end. Skip a section whose heading already exists. Then verify: print the first 15 lines of `AGENTS.md` and confirm all three sections sit above every project rule; if not, move them and print again. Subagents read this file automatically; rules placed lower are effectively ignored.
+6. Shared task state: copy `任务台账-模板.md` to `<project>/docs/任务台账-<campaign>.md` (ask the user for the campaign name if it is unknown). Copy `task_ledger.py` to `~/.zcode/cli/hooks/task_ledger.py`. Back up `~/.zcode/cli/config.json`, then register the hook under `hooks.events.UserPromptSubmit` as a process hook: `command` = `python`, `args` = [absolute path of the script, `--cwd`, `${ZCODE_PROJECT_DIR}`], `timeoutMs` = 10000. The hook injects three things on every prompt: the campaign goal from the ledger's first `<!-- 目标: … -->` line, the open ledger rows, and the Lead's own context size read from ZCode's usage database (`~/.zcode/cli/db/db.sqlite`) with a reminder at 400k and a forced-handoff line at 550k — both constants sit at the top of the script.
+7. `coder.md`'s 「安全规矩」 and 「测试配方」 are written for the author's own project (environment variables, paths, test commands). List each item that needs replacing, ask the user, and replace per the answers; leave unanswered items untouched. Never delete the 「最小验证」 block or the 「先读这九条」 block.
+8. Verify: run `python ~/.zcode/cli/hooks/task_ledger.py --cwd <project>` and show the output — expect one JSON line containing 【任务台账】 (or no output when the project has no ledger file yet). Then tell the user to restart ZCode and open a new session: subagent definitions load in the next session, not the current one.
+9. Finish with a checklist: each file, where it went, what changed, and what is still waiting on the user.
